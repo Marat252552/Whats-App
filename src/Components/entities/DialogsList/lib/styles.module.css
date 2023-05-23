@@ -1,0 +1,14 @@
+.nodialogsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white
+}
+
+.dialogsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

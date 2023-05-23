@@ -1,0 +1,23 @@
+.mainContainer {
+    display: flex;
+    background: #F0F2F5;
+    padding: 10px
+}
+
+.iconsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #54656F
+}
+
+.customInput {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}

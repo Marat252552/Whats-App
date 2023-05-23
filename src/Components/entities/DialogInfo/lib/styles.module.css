@@ -1,0 +1,17 @@
+.mainContainer {
+    display: flex;
+    padding: 13px;
+    gap: 10px
+}
+
+.mainContainer:hover {
+    background: #F0F2F5;
+}
+
+.companionMainInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    width: 100%;
+}
