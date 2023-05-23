@@ -1,14 +1,15 @@
 .mainContainer {
     display: flex;
     background: #F0F2F5;
-    padding: 5px;
-    gap: 5px
+    padding: 10px;
+    gap: 5px;
 }
 
 .companionMainInfoContainer {
     display: flex;
     width: 100%;
     flex-direction: column;
+    justify-content: center;
 }
 
 .iconsContainer {

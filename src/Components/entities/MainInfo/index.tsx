@@ -9,7 +9,7 @@ import Avatar from '@mui/material/Avatar';
 const MainInfo = () => {
     return <div className={styles.container}>
         <div style={{width: '100%', display: 'flex', alignItems: 'center'}}>
-            <Avatar />
+            <Avatar style={{width: '35px', height: '35px'}}/>
         </div>
         <div style={{width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
             <GroupsIcon className={styles.icon}/>

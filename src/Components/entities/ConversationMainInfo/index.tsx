@@ -7,7 +7,7 @@ import styles from './lib/styles.module.css'
 const CompanionMainInfo = ({ companion }: { companion: Companion_T }) => {
     return <div className={styles.mainContainer}>
             <div className={styles.iconsContainer}>
-                <Avatar />
+                <Avatar style={{width: '35px', height: '35px'}}/>
             </div>
 
             <div className={styles.companionMainInfoContainer}>

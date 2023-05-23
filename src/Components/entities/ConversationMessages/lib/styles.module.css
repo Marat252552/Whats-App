@@ -1,4 +1,7 @@
 .mainContainer {
     height: 100%;
-    background: #E4E2DE
+    display: flex;
+    flex-direction: column-reverse;
+    background: #E4E2DE;
+    padding: 20px
 }

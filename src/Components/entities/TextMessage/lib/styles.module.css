@@ -1,0 +1,23 @@
+.myMessageContainer {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+}
+
+.myMessage {
+    padding: 10px;
+    max-width: 70%;
+    border-radius: 5px;
+}
+
+.companionMessage {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.companionMessageContainer {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
