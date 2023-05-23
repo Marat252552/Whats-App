@@ -5,7 +5,7 @@ import { TextMessage_T } from '../../shared/types'
 
 const ConversationMessages = () => {
     let [messages, setMessages] = useState<TextMessage_T[]>([
-        {person: 0, text: 'Привет', time: '00:00'},
+        {person: 0, text: 'Привет пппппп ddddddddddddddddddddddd dddddddddddd ddddddddddddddd ddddddddddddddd dddddddddddddd ddddddddddddd wefewrwer', time: '00:00'},
         {person: 1, text: 'Пока', time: '00:00'}
     ])
     return <div className={styles.mainContainer}>

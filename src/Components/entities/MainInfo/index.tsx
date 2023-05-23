@@ -1,5 +1,5 @@
 import styles from './lib/styles.module.css'
-import { CheckCircleOutlined } from '@ant-design/icons';
+import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -13,7 +13,7 @@ const MainInfo = () => {
         </div>
         <div style={{width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
             <GroupsIcon className={styles.icon}/>
-            <CheckCircleOutlined className={styles.icon}/>
+            <DonutLargeIcon className={styles.icon}/>
             <ChatIcon className={styles.icon}/>
             <MoreVertIcon className={styles.icon}/>
         </div>
