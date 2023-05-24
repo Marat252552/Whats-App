@@ -6,6 +6,7 @@ import UserState from "../state/UserState"
 import { useNavigate } from "react-router-dom"
 
 const ChatPage = observer(() => {
+    
     let navigate = useNavigate()
     useEffect(() => {
         if(!UserState.isLogged) {

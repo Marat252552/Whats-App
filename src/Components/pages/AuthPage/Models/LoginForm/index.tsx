@@ -2,9 +2,9 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons"
 import { Button, Checkbox, Form, Input } from "antd"
 import { useState } from "react"
 import styles from './Lib/styles.module.css'
-import LoginAPI from "./Api/api"
 import { useNavigate } from "react-router-dom"
 import UserState from "../../../../state/UserState"
+import GetAccountSettings from "../../../../GreenAPI/GetAccountSettings"
 
 const LoginForm = ({setError}: {setError: (value: string) => void}) => {
     let navigate = useNavigate()
@@ -14,7 +14,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
     const onFinish = async (values: {idInstance: string, apiTokenInstance: string}) => {
         setLoading(true)
         try {
-            let { status } = await LoginAPI(values.idInstance, values.apiTokenInstance)
+            let { status } = await GetAccountSettings(values.idInstance, values.apiTokenInstance)
             if(status === 200) {
                 navigate('/')
                 UserState.setIsLogged(true)
@@ -40,7 +40,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* idInstance */}
             <Form.Item
                 name="idInstance"
-                initialValue='1101824273'
+                initialValue='1101824428'
                 rules={[{ required: true, message: 'Пожалуйста, введите idInstance!' }]}
             >
                 <Input prefix={<UserOutlined className={styles.siteFormItemIcon} />} placeholder="idInstance" />
@@ -49,7 +49,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* apiTokenInstance */}
             <Form.Item
                 name="apiTokenInstance"
-                initialValue='d4eb58a3aa3344fba792b6b53b28a145303f8819c10c4ac18f'
+                initialValue='ecf9ff2618884dc091393ad97932189c38d183b5deb3433287'
                 rules={[{ required: true, message: 'Пожалуйста, введите apiTokenInstance!' }]}
             >
                 <Input

@@ -29,3 +29,9 @@ export type Companion_T = {
     name: string,
     lastTimeOnline: string,
 }
+
+export type Contact_T = {
+    id: string,
+    name: string,
+    type: string
+}

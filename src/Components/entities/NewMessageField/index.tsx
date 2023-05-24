@@ -8,13 +8,18 @@ import { useState } from 'react';
 import MessagesState from '../../state/MessagesState';
 import {observer} from 'mobx-react-lite'
 import DialogsState from '../../state/DialogsState';
+import UserState from '../../state/UserState';
+import SendMessageAPI from '../../GreenAPI/SendMessage';
 
 const NewMessageField = observer(() => {
     let [value, setValue] = useState('')
-    let sendMessage = () => {
-        MessagesState.addMessage(DialogsState.currentDialogChatId, value, Date.now().toString(), 'outgoing')
-        setValue('')
-        // console.log(toJS MessagesState.messages)
+    let sendMessage = async () => {
+        let response = await SendMessageAPI(DialogsState.currentDialogChatId, value, UserState.idInstance, UserState.apiTokenInstance)
+        if(response.status === 200) {
+            console.log(response.data.idMessage)
+            MessagesState.addMessage(DialogsState.currentDialogChatId, value, response.data.idMessage, 'outgoing')
+            setValue('')
+        }
     }
     return <div className={styles.mainContainer}>
         <div className={styles.iconsContainer}>
