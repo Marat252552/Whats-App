@@ -3,7 +3,7 @@ import CompanionMessage from './models/CompanionMessage'
 import MyMessage from './models/MyMessage'
 
 const TextMessage: TextMessageF_T = ({ message }) => {
-    if (message.person === 0) {
+    if (message.type === 'outgoing') {
         // Сообщение от пользователя
         return <CompanionMessage message={message}/>
     } else {

@@ -1,24 +1,24 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CompanionMainInfo from "../../../entities/ConversationMainInfo"
-import { Companion_T } from "../../../shared/types"
+import { Dialog_T } from "../../../shared/types"
 import ConversationMessages from "../../../entities/ConversationMessages"
 import NewMessageField from "../../../entities/NewMessageField"
+import { observer } from 'mobx-react-lite'
+import DialogsState from "../../../state/DialogsState"
 
-
-const Conversation = () => {
-    let [companion, setCompanion] = useState<Companion_T>({
-        lastTimeOnline: '14:00',
-        name: 'John'
-    })
-    if (!companion) {
-        return <div>Выберите чат</div>
-    } else {
-        return <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <CompanionMainInfo companion={companion}/>
-            <ConversationMessages />
-            <NewMessageField />
-        </div>
-    }
-}
+const Conversation = observer(() => {
+    let [dialog, setDialog] = useState<Dialog_T>()
+    useEffect(() => {
+        let requiredDialog = DialogsState.dialogs.find(el => {
+            return el.chatId === DialogsState.currentDialogChatId
+        })
+        setDialog(requiredDialog)
+    }, [DialogsState.currentDialogChatId])
+    return <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <CompanionMainInfo dialog={dialog} />
+        <ConversationMessages />
+        <NewMessageField />
+    </div>
+})
 
 export default Conversation

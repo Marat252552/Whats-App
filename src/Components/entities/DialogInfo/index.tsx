@@ -1,9 +1,15 @@
 import Avatar from '@mui/material/Avatar';
 import styles from './lib/styles.module.css'
 import { Dialog_T } from '../../shared/types';
+import {observer} from 'mobx-react-lite'
+import DialogsState from '../../state/DialogsState';
 
-const DialogInfo = ({dialog}: {dialog: Dialog_T}) => {
-    return <div className={styles.mainContainer}>
+const DialogInfo = observer(({dialog}: {dialog: Dialog_T}) => {
+    let openDialog = () => {
+        DialogsState.setCurrentDialogChatId(dialog.chatId)
+        console.log(DialogsState.currentDialogChatId)
+    }
+    return <div onClick={openDialog} className={styles.mainContainer}>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Avatar style={{width: '50px', height: '50px', }}/>
         </div>
@@ -17,6 +23,6 @@ const DialogInfo = ({dialog}: {dialog: Dialog_T}) => {
             <span>{dialog.lastMessageTime}</span>
         </div>
     </div>
-}
+})
 
 export default DialogInfo

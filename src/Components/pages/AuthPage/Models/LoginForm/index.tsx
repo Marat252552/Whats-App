@@ -6,8 +6,6 @@ import LoginAPI from "./Api/api"
 import { useNavigate } from "react-router-dom"
 import UserState from "../../../../state/UserState"
 
-
-
 const LoginForm = ({setError}: {setError: (value: string) => void}) => {
     let navigate = useNavigate()
     // Загрузка кнопки "войти" после отправки формы
@@ -40,6 +38,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* idInstance */}
             <Form.Item
                 name="idInstance"
+                initialValue='1101824273'
                 rules={[{ required: true, message: 'Пожалуйста, введите idInstance!' }]}
             >
                 <Input prefix={<UserOutlined className={styles.siteFormItemIcon} />} placeholder="idInstance" />
@@ -48,6 +47,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* apiTokenInstance */}
             <Form.Item
                 name="apiTokenInstance"
+                initialValue='d4eb58a3aa3344fba792b6b53b28a145303f8819c10c4ac18f'
                 rules={[{ required: true, message: 'Пожалуйста, введите apiTokenInstance!' }]}
             >
                 <Input
