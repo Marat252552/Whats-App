@@ -18,6 +18,8 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             if(status === 200) {
                 navigate('/')
                 UserState.setIsLogged(true)
+                UserState.setApiTokenInstance(values.apiTokenInstance)
+                UserState.setIdInstance(values.idInstance)
             }
         } catch (e: any) {
             if(e.response.status === 403) {

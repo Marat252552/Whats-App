@@ -5,12 +5,16 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
+import MessagesState from '../../state/MessagesState';
+import {observer} from 'mobx-react-lite'
+import DialogsState from '../../state/DialogsState';
 
-const NewMessageField = () => {
+const NewMessageField = observer(() => {
     let [value, setValue] = useState('')
     let sendMessage = () => {
-        console.log(value)
+        MessagesState.addMessage(DialogsState.currentDialogChatId, value, Date.now().toString(), 'outgoing')
         setValue('')
+        // console.log(toJS MessagesState.messages)
     }
     return <div className={styles.mainContainer}>
         <div className={styles.iconsContainer}>
@@ -27,6 +31,6 @@ const NewMessageField = () => {
             }
         </div>
     </div>
-}
+})
 
 export default NewMessageField

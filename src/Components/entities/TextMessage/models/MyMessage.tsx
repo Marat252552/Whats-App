@@ -6,11 +6,11 @@ const MyMessage: MyMessageF_T = ({message}) => {
     <div style={{background: 'white', display: 'flex', padding: '5px', borderRadius: '5px'}}>
         {/* Содержимое сообщения */}
         <div className={styles.companionMessage}>
-            {message.text}
+            {message.textMessage}
         </div>
         {/* Время отправки сообщения */}
         <div style={{display: 'flex', alignItems: 'end', fontSize: '10px'}}>
-            {message.time}
+            {message.timestamp}
         </div>
     </div>
 </div>
