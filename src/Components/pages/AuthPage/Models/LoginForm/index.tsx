@@ -22,9 +22,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
                 UserState.setIdInstance(values.idInstance)
             }
         } catch (e: any) {
-            if(e.response.status === 403) {
-                setError('Неверный idInstance или apiTokenInstance')
-            }
+            setError('Ошибка авторизации. Проверьте данные')
             console.log(e)
         } finally {
             setLoading(false)
