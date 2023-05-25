@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 import {message} from 'antd'
 
 const AuthPage = observer(() => {
+    // Authorization errors displayer
     const [messageApi, contextHolder] = message.useMessage();
     const setError = (value: string) => {
         messageApi.open({
@@ -14,8 +15,8 @@ const AuthPage = observer(() => {
             content: value,
         });
     }
+    // Authorization check. If user is logged then redirect him on ChatPage
     let navigate = useNavigate()
-    // Проверка авторизации
     useEffect(() => {
         if(UserState.isLogged) {
             navigate('/')

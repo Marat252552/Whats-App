@@ -1,15 +1,14 @@
-.nodialogsContainer {
+.nochatsContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     background: white
 }
 
-.dialogsContainer {
+.chatsContainer {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     /* align-items: center; */
     overflow: auto;

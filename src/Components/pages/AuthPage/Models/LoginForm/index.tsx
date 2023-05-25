@@ -1,5 +1,5 @@
 import { UserOutlined, LockOutlined } from "@ant-design/icons"
-import { Button, Checkbox, Form, Input } from "antd"
+import { Button, Form, Input } from "antd"
 import { useState } from "react"
 import styles from './Lib/styles.module.css'
 import { useNavigate } from "react-router-dom"
@@ -8,9 +8,9 @@ import GetAccountSettings from "../../../../GreenAPI/GetAccountSettings"
 
 const LoginForm = ({setError}: {setError: (value: string) => void}) => {
     let navigate = useNavigate()
-    // Загрузка кнопки "войти" после отправки формы
+    // Whether login button is in loading state
     let [loading, setLoading] = useState(false)
-    // Callback, который вызывается на отправку формы
+    // Callback on form send
     const onFinish = async (values: {idInstance: string, apiTokenInstance: string}) => {
         setLoading(true)
         try {
@@ -40,7 +40,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* idInstance */}
             <Form.Item
                 name="idInstance"
-                initialValue='1101824428'
+                initialValue='1101824684'
                 rules={[{ required: true, message: 'Пожалуйста, введите idInstance!' }]}
             >
                 <Input prefix={<UserOutlined className={styles.siteFormItemIcon} />} placeholder="idInstance" />
@@ -49,7 +49,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* apiTokenInstance */}
             <Form.Item
                 name="apiTokenInstance"
-                initialValue='ecf9ff2618884dc091393ad97932189c38d183b5deb3433287'
+                initialValue='c7b419a1aee341adb5720bdfa268a19de740e206784c4b77af'
                 rules={[{ required: true, message: 'Пожалуйста, введите apiTokenInstance!' }]}
             >
                 <Input
@@ -58,7 +58,7 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
                 />
             </Form.Item>
 
-            {/* Кнопка "войти" */}
+            {/* Form submit button "войти" */}
             <Form.Item>
                 <Button type="primary" htmlType="submit" loading={loading} className={styles.loginFormButton}>
                     Войти

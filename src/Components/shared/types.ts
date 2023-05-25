@@ -1,8 +1,6 @@
-export type Dialog_T = {
+export type StateChat_T = {
     chatId: string,
-    name: string,
-    lastMessageText: string,
-    lastMessageTimestamp: any,
+    name: string
 }
 
 enum MessageTypes {

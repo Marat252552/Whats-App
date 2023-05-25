@@ -6,11 +6,21 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Avatar from '@mui/material/Avatar';
 import {useState} from 'react'
 import {Modal, Input} from 'antd'
-import DialogsState from '../../state/DialogsState';
-import { Dialog_T } from '../../shared/types';
 import {observer} from 'mobx-react-lite'
+import ChatsState from '../../state/ChatsState';
+import {message} from 'antd'
 
 const MainInfo = observer(() => {
+    // Displaying input error
+    const [messageApi, contextHolder] = message.useMessage();
+    const setError = (value: string) => {
+        messageApi.open({
+            type: 'error',
+            content: value,
+        });
+    }
+
+    // Modal window to add new chat
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     let [chatId, setChatId] = useState('')
@@ -23,7 +33,11 @@ const MainInfo = observer(() => {
     }
 
     const handleOk = () => {
-        DialogsState.addDialog(chatId)
+        if(chatId === '') {
+            setError('Адрес не может быть пустым')
+            return
+        }
+        ChatsState.addChat(chatId, chatId)
         setChatId('')
         closeModal()
     };
@@ -46,6 +60,7 @@ const MainInfo = observer(() => {
             Введите chatId
             <Input value={chatId} placeholder='chatId' onChange={e => {setChatId(e.target.value)}}/>
         </Modal>
+        {contextHolder}
     </div>
 })
 

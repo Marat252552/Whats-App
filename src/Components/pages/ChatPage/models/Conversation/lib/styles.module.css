@@ -1,0 +1,8 @@
+.noChatChosen {
+    background-image: url('./../../../../../../Config/Media/Trianglify-10s-1280px.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}

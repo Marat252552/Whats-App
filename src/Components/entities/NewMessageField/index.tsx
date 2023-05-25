@@ -7,17 +7,16 @@ import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
 import MessagesState from '../../state/MessagesState';
 import {observer} from 'mobx-react-lite'
-import DialogsState from '../../state/DialogsState';
 import UserState from '../../state/UserState';
 import SendMessageAPI from '../../GreenAPI/SendMessage';
+import ChatsState from '../../state/ChatsState';
 
 const NewMessageField = observer(() => {
     let [value, setValue] = useState('')
     let sendMessage = async () => {
-        let response = await SendMessageAPI(DialogsState.currentDialogChatId, value, UserState.idInstance, UserState.apiTokenInstance)
+        let response = await SendMessageAPI(ChatsState.currentChatId, value, UserState.idInstance, UserState.apiTokenInstance)
         if(response.status === 200) {
-            console.log(response.data.idMessage)
-            MessagesState.addMessage(DialogsState.currentDialogChatId, value, response.data.idMessage, 'outgoing', (Date.now()) * 0.001)
+            MessagesState.addMessage(ChatsState.currentChatId, value, response.data.idMessage, 'outgoing', (Date.now()) * 0.001)
             setValue('')
         }
     }

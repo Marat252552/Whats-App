@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import styles from './lib/styles.module.css'
 import TextMessage from '../TextMessage'
-import { TextMessage_T } from '../../shared/types'
 import { observer } from 'mobx-react-lite'
 import { toJS } from 'mobx'
-import DialogsState from '../../state/DialogsState'
 import MessagesState from '../../state/MessagesState'
 import UserState from '../../state/UserState'
 import GetNotificationAPI from '../../GreenAPI/GetNotificationAPI'
 import DeleteNotificationAPI from '../../GreenAPI/DeleteNotificationAPI'
+import ChatsState from '../../state/ChatsState'
 
 const ConversationMessages = observer(() => {
   let subscribe = async () => {
@@ -37,7 +36,7 @@ const ConversationMessages = observer(() => {
   }, [])
   return <div className={styles.mainContainer}>
     {MessagesState.messages.filter(el => {
-      return el.chatId === DialogsState.currentDialogChatId
+      return el.chatId === ChatsState.currentChatId
     }).reverse().map(message => {
       console.log(toJS(message) )
       return <TextMessage key={message.idMessage} message={message} />
