@@ -19,4 +19,5 @@
     display: flex;
     justify-content: start;
     flex-direction: row;
+    border: solid 1px red
 }

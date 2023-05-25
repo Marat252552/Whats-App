@@ -7,14 +7,17 @@ class MessagesState {
     constructor() {
         makeAutoObservable(this)
     }
-    addMessage(chatId: string, textMessage: string, idMessage: string, type: string) {
+    addMessage(chatId: string, textMessage: string, idMessage: string, type: string, timestamp: number) {
+        this.messages = this.messages.filter(el => {
+            return el.idMessage !== idMessage
+        })
         let message: TextMessage_T = {
             chatId,
             textMessage,
             idMessage,
             senderId: '',
             senderName: '',
-            timestamp: 0,
+            timestamp,
             type,
             typeMessage: 'textMessage'
         }

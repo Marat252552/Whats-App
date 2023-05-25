@@ -1,8 +1,8 @@
 export type Dialog_T = {
     chatId: string,
     name: string,
-    lastMessage: string,
-    lastMessageTime: any,
+    lastMessageText: string,
+    lastMessageTimestamp: any,
 }
 
 enum MessageTypes {
@@ -34,4 +34,12 @@ export type Contact_T = {
     id: string,
     name: string,
     type: string
+}
+
+export type Chat_T = {
+    archive: boolean,
+    id: string,
+    notSpam: boolean,
+    ephemeralExpiration: 0,
+    ephemeralSettingsTimestamp: 0
 }

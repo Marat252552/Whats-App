@@ -8,11 +8,11 @@ class DialogsState {
     constructor() {
         makeAutoObservable(this)
     }
-    addDialog(chatId: string, name: string) {
+    addDialog(chatId: string, name: string, lastMessageText: string, lastMessageTimestamp: number) {
         let dialog: Dialog_T = {
             chatId,
-            lastMessage: '',
-            lastMessageTime: '00:00',
+            lastMessageText,
+            lastMessageTimestamp,
             name
         }
         this.dialogs.push(dialog)

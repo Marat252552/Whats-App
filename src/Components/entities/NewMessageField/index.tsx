@@ -17,7 +17,7 @@ const NewMessageField = observer(() => {
         let response = await SendMessageAPI(DialogsState.currentDialogChatId, value, UserState.idInstance, UserState.apiTokenInstance)
         if(response.status === 200) {
             console.log(response.data.idMessage)
-            MessagesState.addMessage(DialogsState.currentDialogChatId, value, response.data.idMessage, 'outgoing')
+            MessagesState.addMessage(DialogsState.currentDialogChatId, value, response.data.idMessage, 'outgoing', (Date.now()) * 0.001)
             setValue('')
         }
     }

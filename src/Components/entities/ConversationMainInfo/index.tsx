@@ -11,7 +11,7 @@ const CompanionMainInfo = ({ dialog }: { dialog: Dialog_T }) => {
             </div>
 
             <div className={styles.companionMainInfoContainer}>
-                <span>{dialog?.name || 'Имя пользователя'}</span>
+                <span>{dialog?.name || dialog?.chatId || 'Имя пользователя'}</span>
                 <span style={{fontSize: '10px'}}>был(-а) сегодня в 00:00</span>
             </div>
 

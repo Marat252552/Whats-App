@@ -15,12 +15,14 @@ const ConversationMessages = observer(() => {
     try {
       let response = await GetNotificationAPI(UserState.idInstance, UserState.apiTokenInstance)
       if(response.data !== null) {
+        await DeleteNotificationAPI(UserState.idInstance, UserState.apiTokenInstance, response.data.receiptId)
         let chatId = response.data.body.senderData.chatId
         let textMessage = response.data.body.messageData.textMessageData.textMessage
         let idMessage = response.data.body.idMessage
         let type = 'incoming'
-        MessagesState.addMessage(chatId, textMessage, idMessage, type)
-        await DeleteNotificationAPI(UserState.idInstance, UserState.apiTokenInstance, response.data.receiptId)
+        let timestamp = response.data.body.timestamp
+        MessagesState.addMessage(chatId, textMessage, idMessage, type, timestamp)
+        console.log(toJS(MessagesState.messages) )
       }
       subscribe()
     } catch (e) {
@@ -34,13 +36,10 @@ const ConversationMessages = observer(() => {
     subscribe()
   }, [])
   return <div className={styles.mainContainer}>
-    <button onClick={() => {
-      console.log(toJS(MessagesState.messages))
-      console.log(toJS(DialogsState.currentDialogChatId))
-    }}>Analyze</button>
     {MessagesState.messages.filter(el => {
       return el.chatId === DialogsState.currentDialogChatId
-    }).map(message => {
+    }).reverse().map(message => {
+      console.log(toJS(message) )
       return <TextMessage key={message.idMessage} message={message} />
     })}
   </div>

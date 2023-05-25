@@ -5,7 +5,7 @@ type API_T = (idInstance: string, apiTokenInstance: string) => Promise<AxiosResp
     receiptId: number,
     body: {
         idMessage: string,
-        timeStamp: number,
+        timestamp: number,
         senderData: {
             chatId: string,
             chatName: string,
