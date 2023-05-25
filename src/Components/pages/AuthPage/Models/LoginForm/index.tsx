@@ -40,7 +40,6 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* idInstance */}
             <Form.Item
                 name="idInstance"
-                initialValue='1101824684'
                 rules={[{ required: true, message: 'Пожалуйста, введите idInstance!' }]}
             >
                 <Input prefix={<UserOutlined className={styles.siteFormItemIcon} />} placeholder="idInstance" />
@@ -49,7 +48,6 @@ const LoginForm = ({setError}: {setError: (value: string) => void}) => {
             {/* apiTokenInstance */}
             <Form.Item
                 name="apiTokenInstance"
-                initialValue='c7b419a1aee341adb5720bdfa268a19de740e206784c4b77af'
                 rules={[{ required: true, message: 'Пожалуйста, введите apiTokenInstance!' }]}
             >
                 <Input

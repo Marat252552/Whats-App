@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import styles from './lib/styles.module.css'
 import TextMessage from '../TextMessage'
 import { observer } from 'mobx-react-lite'

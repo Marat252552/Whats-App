@@ -8,7 +8,10 @@ import ChatsState from "../../../../state/ChatsState"
 import styles from './lib/styles.module.css'
 
 const Conversation = observer(() => {
-    let [chat, setChat] = useState<StateChat_T>()
+    let [chat, setChat]: [StateChat_T, any] = useState({
+        chatId: '',
+        name: ''
+    })
     useEffect(() => {
         let requiredDialog = ChatsState.chats.find(el => {
             return el.chatId === ChatsState.currentChatId

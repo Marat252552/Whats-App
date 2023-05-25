@@ -3,14 +3,6 @@ export type StateChat_T = {
     name: string
 }
 
-enum MessageTypes {
-    'outgoing',
-    'incoming'
-}
-
-enum TypeMessage {
-    'textMessage'
-}
 
 export type TextMessage_T = {
     type: string,
